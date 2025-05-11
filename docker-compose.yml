@@ -1,0 +1,42 @@
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: blog_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    command: ["gunicorn", "blog_platform.wsgi:application", "--bind", "0.0.0.0:8000"]
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=blog_platform.settings
+      - DEBUG=1
+      - SECRET_KEY=mysecretkey
+      - DATABASE_URL=postgres://myuser:mypassword@db:5432/mydb
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: nextjs
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+
+volumes:
+  postgres_data:

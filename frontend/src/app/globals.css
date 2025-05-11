@@ -1,0 +1,78 @@
+/* ==== БАЗОВАЯ СБРОСКА ==== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==== ТЕЛО СТРАНИЦЫ ==== */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f7f8fa;
+  color: #1f1f1f;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* ==== ССЫЛКИ ==== */
+a {
+  color: #1677ff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #0958d9;
+}
+
+/* ==== ОСНОВНОЙ КОНТЕЙНЕР ==== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ==== ЗАГОЛОВКИ ==== */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 0.5em;
+}
+
+/* ==== КАРТОЧКИ ==== */
+.ant-card {
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.ant-card-body {
+  padding: 16px;
+}
+
+/* ==== КНОПКИ ==== */
+.ant-btn {
+  border-radius: 8px;
+}
+
+/* ==== ФОРМЫ ==== */
+.ant-form-item {
+  margin-bottom: 16px;
+}
+
+/* ==== СПИСКИ ==== */
+.ant-list-item {
+  padding-left: 0;
+  padding-right: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* ==== АДАПТИВНОСТЬ ==== */
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+  }
+
+  .ant-card {
+    margin-bottom: 16px;
+  }
+}
